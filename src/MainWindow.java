@@ -9,7 +9,7 @@ public class MainWindow extends JFrame {
 
         getContentPane().setBackground(Color.WHITE);
         add(canvas);
-        setSize(400, 400);
+        setSize(500, 500);
         setVisible(true);
 
 //        JButton b = new JButton("click");//creating instance of JButton
