@@ -1,8 +1,11 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
+import javax.swing.Timer;
 
-public class Canvas extends java.awt.Canvas {
+public class Canvas extends java.awt.Canvas implements ActionListener {
     private List<Drawable> drawables = new ArrayList<>();
 
     private final Color CIRCLE_COLOR;
@@ -58,15 +61,9 @@ public class Canvas extends java.awt.Canvas {
     }
 
     public void startMove () {
-        Timer timer = new Timer();
+        Timer timer = new Timer(100, this);
 
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                move();
-                paint(getGraphics());
-            }
-        }, 0, 100);
+        timer.start();
     }
 
     public void move () {
@@ -80,5 +77,11 @@ public class Canvas extends java.awt.Canvas {
         for (Drawable d : drawables) {
             d.draw(g);
         }
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        move();
+        paint(getGraphics());
     }
 }
