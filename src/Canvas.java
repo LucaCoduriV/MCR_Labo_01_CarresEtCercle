@@ -3,10 +3,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
 import java.util.List;
+import javax.swing.*;
 import javax.swing.Timer;
 
-public class Canvas extends java.awt.Canvas implements ActionListener {
-    private List<Drawable> drawables = new ArrayList<>();
+public class Canvas extends JPanel implements ActionListener {
+    private List<DrawableObject> drawables = new ArrayList<>();
 
     private final Color CIRCLE_COLOR;
     private final Color SQUARE_COLOR;
@@ -29,7 +30,7 @@ public class Canvas extends java.awt.Canvas implements ActionListener {
         MAX_SIZE = 50;
         MIN_SIZE = 10;
 
-        MAX_MOVEMENT = 5;
+        MAX_MOVEMENT = 3;
         MIN_MOVEMENT = 1;
 
         initCircles();
@@ -60,20 +61,20 @@ public class Canvas extends java.awt.Canvas implements ActionListener {
         }
     }
 
-    public void startMove () {
-        Timer timer = new Timer(100, this);
+    public void startUpdate() {
+        Timer timer = new Timer(1000/60, this);
 
         timer.start();
     }
 
-    public void move () {
-        for (Drawable d : drawables)
-            d.move();
+    public void update() {
+        for (DrawableObject d : drawables)
+            d.update();
     }
 
     @Override
-    public void paint(Graphics g) {
-        super.paint(g);
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
         for (Drawable d : drawables) {
             d.draw(g);
         }
@@ -81,7 +82,8 @@ public class Canvas extends java.awt.Canvas implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        move();
-        paint(getGraphics());
+        update();
+        paintComponent(getGraphics());
+
     }
 }

@@ -23,8 +23,7 @@ public abstract class DrawableObject implements Drawable {
         return movement;
     }
 
-    @Override
-    public void move() {
+    public void update() {
         position = position.add(movement);
     }
 }
