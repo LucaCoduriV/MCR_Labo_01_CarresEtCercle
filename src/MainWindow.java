@@ -12,6 +12,8 @@ public class MainWindow extends JFrame {
         setSize(500, 500);
         setVisible(true);
 
+        canvas.startMove();
+
 //        JButton b = new JButton("click");//creating instance of JButton
 //        b.setBounds(130, 100, 100, 40);//x axis, y axis, width, height
 //

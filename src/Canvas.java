@@ -1,7 +1,6 @@
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Random;
 
 public class Canvas extends java.awt.Canvas {
     private List<Drawable> drawables = new ArrayList<>();
@@ -56,6 +55,23 @@ public class Canvas extends java.awt.Canvas {
 
             drawables.add(new DSquare(SIZE, SQUARE_COLOR, new Vector(0, 0), new Vector(MOVE_X, MOVE_Y)));
         }
+    }
+
+    public void startMove () {
+        Timer timer = new Timer();
+
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                move();
+                paint(getGraphics());
+            }
+        }, 0, 100);
+    }
+
+    public void move () {
+        for (Drawable d : drawables)
+            d.move();
     }
 
     @Override
