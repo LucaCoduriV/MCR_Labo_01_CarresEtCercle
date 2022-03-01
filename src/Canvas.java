@@ -83,7 +83,6 @@ public class Canvas extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         update();
-        paintComponent(getGraphics());
-
+        repaint();
     }
 }
