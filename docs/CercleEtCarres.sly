@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
+<classDiagram>
+  <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="Carrés et Cercles">
+    <inheritance id="2475">
+      <child>4</child>
+      <parent>2472</parent>
+    </inheritance>
+    <inheritance id="2474">
+      <child>52</child>
+      <parent>2472</parent>
+    </inheritance>
+    <inheritance id="2473">
+      <child>2472</child>
+      <parent>48</parent>
+    </inheritance>
+    <entity entityType="CLASS" id="2472" isAbstract="true" name="DShape" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="update" returnType="void" view="DEFAULT" visibility="PUBLIC"/>
+      <method isAbstract="true" isStatic="false" name="reactOnCollision" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="offsetX" type="int"/>
+        <variable const="false" name="offsetY" type="int"/>
+        <variable const="false" name="maxX" type="int"/>
+        <variable const="false" name="maxY" type="int"/>
+      </method>
+    </entity>
+    <inheritance id="53">
+      <child>3</child>
+      <parent>52</parent>
+    </inheritance>
+    <inheritance id="550">
+      <child>48</child>
+      <parent>5</parent>
+    </inheritance>
+    <entity entityType="CLASS" id="1" isAbstract="false" name="MainWindow" visibility="PUBLIC"/>
+    <entity entityType="CLASS" id="3" isAbstract="false" name="DSquare" visibility="PUBLIC">
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="Square" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="h" type="double"/>
+        <variable const="false" name="c" type="Color"/>
+      </method>
+    </entity>
+    <entity entityType="CLASS" id="4" isAbstract="false" name="DCircle" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="radius" type="double" visibility="PRIVATE"/>
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="Circle" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="r" type="double"/>
+        <variable const="false" name="c" type="Color"/>
+      </method>
+      <method isAbstract="false" isStatic="false" name="draw" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="g" type="Graphics"/>
+      </method>
+    </entity>
+    <entity entityType="INTERFACE" id="5" isAbstract="true" name="Drawable" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="draw" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="g" type="Graphics"/>
+      </method>
+    </entity>
+    <entity entityType="CLASS" id="48" isAbstract="true" name="DrawableObject" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="color" type="Color" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="position" type="Vector" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="52" isAbstract="false" name="DRectangle" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="height" type="double" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="width" type="double" visibility="PRIVATE"/>
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="Rectangle" returnType="" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="h" type="double"/>
+        <variable const="false" name="w" type="double"/>
+        <variable const="false" name="c" type="Color"/>
+      </method>
+      <method isAbstract="false" isStatic="false" name="draw" returnType="void" view="DEFAULT" visibility="PUBLIC">
+        <variable const="false" name="g" type="Graphics"/>
+      </method>
+    </entity>
+    <entity entityType="CLASS" id="474" isAbstract="false" name="Vector" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="x" type="double" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="y" type="double" visibility="PRIVATE"/>
+      <method is-constructor="true" isAbstract="false" isStatic="false" name="Vector" returnType="" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+  </diagramElements>
+  <umlView grid="10" name="Main view" open="true">
+    <relationView color="-12566464" relationId="550">
+      <line>
+        <point>
+          <x>821</x>
+          <y>151</y>
+        </point>
+        <point>
+          <x>821</x>
+          <y>141</y>
+        </point>
+        <point>
+          <x>641</x>
+          <y>141</y>
+        </point>
+        <point>
+          <x>641</x>
+          <y>105</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="53">
+      <line>
+        <point>
+          <x>601</x>
+          <y>661</y>
+        </point>
+        <point>
+          <x>601</x>
+          <y>616</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="2473">
+      <line>
+        <point>
+          <x>831</x>
+          <y>301</y>
+        </point>
+        <point>
+          <x>831</x>
+          <y>281</y>
+        </point>
+        <point>
+          <x>821</x>
+          <y>281</y>
+        </point>
+        <point>
+          <x>821</x>
+          <y>236</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="2474">
+      <line>
+        <point>
+          <x>671</x>
+          <y>501</y>
+        </point>
+        <point>
+          <x>671</x>
+          <y>441</y>
+        </point>
+        <point>
+          <x>831</x>
+          <y>441</y>
+        </point>
+        <point>
+          <x>831</x>
+          <y>386</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="2475">
+      <line>
+        <point>
+          <x>991</x>
+          <y>501</y>
+        </point>
+        <point>
+          <x>991</x>
+          <y>441</y>
+        </point>
+        <point>
+          <x>831</x>
+          <y>441</y>
+        </point>
+        <point>
+          <x>831</x>
+          <y>386</y>
+        </point>
+      </line>
+    </relationView>
+    <componentView color="-2079" componentID="52" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>520</x>
+        <y>500</y>
+        <w>300</w>
+        <h>115</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="48" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>740</x>
+        <y>150</y>
+        <w>150</w>
+        <h>85</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="5" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>540</x>
+        <y>20</y>
+        <w>200</w>
+        <h>84</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="4" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>890</x>
+        <y>500</y>
+        <w>200</w>
+        <h>100</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="3" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>520</x>
+        <y>660</y>
+        <w>230</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="1" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>160</x>
+        <y>10</y>
+        <w>150</w>
+        <h>55</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="2472" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>750</x>
+        <y>300</y>
+        <w>410</w>
+        <h>85</h>
+      </geometry>
+    </componentView>
+  </umlView>
+</classDiagram>
