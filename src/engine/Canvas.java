@@ -29,13 +29,13 @@ public class Canvas extends JPanel implements ActionListener {
     public Canvas() {
         CIRCLE_COLOR = Color.BLUE;
         SQUARE_COLOR = Color.ORANGE;
-        NB_CIRCLES = 5;
-        NB_SQUARES = 5;
+        NB_CIRCLES = 15;
+        NB_SQUARES = 15;
 
-        MAX_SIZE = 50;
+        MAX_SIZE = 30;
         MIN_SIZE = 10;
 
-        MAX_MOVEMENT = 3;
+        MAX_MOVEMENT = 4;
         MIN_MOVEMENT = 1;
 
         initCircles();
@@ -50,7 +50,7 @@ public class Canvas extends JPanel implements ActionListener {
             final int MOVE_X = random.nextInt(MAX_MOVEMENT - MIN_MOVEMENT) + MIN_MOVEMENT;
             final int MOVE_Y = random.nextInt(MAX_MOVEMENT - MIN_MOVEMENT) + MIN_MOVEMENT;
 
-            drawables.add(new DCircle(RADIUS, CIRCLE_COLOR, new Vector(0, 0), new Vector(MOVE_X, MOVE_Y)));
+            drawables.add(new DCircle(RADIUS, CIRCLE_COLOR, new Vector(RADIUS, RADIUS), new Vector(MOVE_X, MOVE_Y)));
         }
     }
 
@@ -62,7 +62,7 @@ public class Canvas extends JPanel implements ActionListener {
             final int MOVE_X = random.nextInt(MAX_MOVEMENT - MIN_MOVEMENT) + MIN_MOVEMENT;
             final int MOVE_Y = random.nextInt(MAX_MOVEMENT - MIN_MOVEMENT) + MIN_MOVEMENT;
 
-            drawables.add(new DSquare(SIZE, SQUARE_COLOR, new Vector(0, 0), new Vector(MOVE_X, MOVE_Y)));
+            drawables.add(new DSquare(SIZE, SQUARE_COLOR, new Vector(SIZE / 2, SIZE / 2), new Vector(MOVE_X, MOVE_Y)));
         }
     }
 

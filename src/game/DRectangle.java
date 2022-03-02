@@ -17,4 +17,19 @@ public class DRectangle extends DShape {
         g.setColor(getColor());
         g.fillRect(getPosition().getX(), getPosition().getY(), width, height);
     }
+
+    @Override
+    public void update(int maxX, int maxY) {
+        Vector newPosition = getPosition().add(getMovement());
+
+        if ((newPosition.getX() + width / 2) >= maxX || (newPosition.getX() - width / 2) <= 0) {
+            setMovement(new Vector(-getMovement().getX(), getMovement().getY()));
+        }
+
+        if ((newPosition.getY() + height / 2) >= maxY || (newPosition.getY() - height / 2) <= 0) {
+            setMovement(new Vector(getMovement().getX(), -getMovement().getY()));
+        }
+
+        setPosition(getPosition().add(getMovement()));
+    }
 }

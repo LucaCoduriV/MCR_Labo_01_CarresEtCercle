@@ -17,4 +17,19 @@ public class DCircle extends DShape {
         g.setColor(getColor());
         g.fillOval(getPosition().getX(), getPosition().getY(), 2 * radius, 2 * radius);
     }
+
+    @Override
+    public void update(int maxX, int maxY) {
+        Vector newPosition = getPosition().add(getMovement());
+
+        if ((newPosition.getX() + radius) > maxX || (newPosition.getX() - radius) < 0) {
+            setMovement(new Vector(-getMovement().getX(), getMovement().getY()));
+        }
+
+        if ((newPosition.getY() + radius) > maxY || (newPosition.getY() - radius) < 0) {
+            setMovement(new Vector(getMovement().getX(), -getMovement().getY()));
+        }
+
+        setPosition(getPosition().add(getMovement()));
+    }
 }
