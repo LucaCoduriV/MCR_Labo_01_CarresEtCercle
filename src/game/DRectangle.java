@@ -22,11 +22,11 @@ public class DRectangle extends DShape {
     public void update(int maxX, int maxY) {
         Vector newPosition = getPosition().add(getMovement());
 
-        if ((newPosition.getX() + width / 2) >= maxX || (newPosition.getX() - width / 2) <= 0) {
+        if ((newPosition.getX() + width) >= maxX || (newPosition.getX()) <= 0) {
             setMovement(new Vector(-getMovement().getX(), getMovement().getY()));
         }
 
-        if ((newPosition.getY() + height / 2) >= maxY || (newPosition.getY() - height / 2) <= 0) {
+        if ((newPosition.getY() + height) >= maxY || (newPosition.getY()) <= 0) {
             setMovement(new Vector(getMovement().getX(), -getMovement().getY()));
         }
 

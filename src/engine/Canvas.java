@@ -47,8 +47,8 @@ public class Canvas extends JPanel implements ActionListener {
             Random random = new Random();
 
             final int RADIUS = random.nextInt(MAX_SIZE / 2 - MIN_SIZE / 2) + MIN_SIZE / 2;
-            final int MOVE_X = random.nextInt(MAX_MOVEMENT - MIN_MOVEMENT) + MIN_MOVEMENT;
-            final int MOVE_Y = random.nextInt(MAX_MOVEMENT - MIN_MOVEMENT) + MIN_MOVEMENT;
+            final int MOVE_X = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
+            final int MOVE_Y = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
 
             drawables.add(new DCircle(RADIUS, CIRCLE_COLOR, new Vector(RADIUS, RADIUS), new Vector(MOVE_X, MOVE_Y)));
         }
@@ -59,8 +59,8 @@ public class Canvas extends JPanel implements ActionListener {
             Random random = new Random();
 
             final int SIZE = random.nextInt(MAX_SIZE - MIN_SIZE) + MIN_SIZE;
-            final int MOVE_X = random.nextInt(MAX_MOVEMENT - MIN_MOVEMENT) + MIN_MOVEMENT;
-            final int MOVE_Y = random.nextInt(MAX_MOVEMENT - MIN_MOVEMENT) + MIN_MOVEMENT;
+            final int MOVE_X = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
+            final int MOVE_Y = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
 
             drawables.add(new DSquare(SIZE, SQUARE_COLOR, new Vector(SIZE / 2, SIZE / 2), new Vector(MOVE_X, MOVE_Y)));
         }

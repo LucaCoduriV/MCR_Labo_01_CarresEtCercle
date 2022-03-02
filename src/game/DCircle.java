@@ -22,11 +22,11 @@ public class DCircle extends DShape {
     public void update(int maxX, int maxY) {
         Vector newPosition = getPosition().add(getMovement());
 
-        if ((newPosition.getX() + radius) > maxX || (newPosition.getX() - radius) < 0) {
+        if ((newPosition.getX() + 2 * radius) > maxX || (newPosition.getX()) < 0) {
             setMovement(new Vector(-getMovement().getX(), getMovement().getY()));
         }
 
-        if ((newPosition.getY() + radius) > maxY || (newPosition.getY() - radius) < 0) {
+        if ((newPosition.getY() + 2 * radius) > maxY || (newPosition.getY()) < 0) {
             setMovement(new Vector(getMovement().getX(), -getMovement().getY()));
         }
 
