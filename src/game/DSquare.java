@@ -1,5 +1,6 @@
 package game;
 
+import graphics.Displayer;
 import utility.Vector;
 
 import java.awt.*;
@@ -7,18 +8,19 @@ import java.awt.*;
 public class DSquare extends DShape {
     private int size;
 
-    public DSquare(int size, Color color, Vector position, Vector movement) {
-        super(color, position, movement);
+    public DSquare(int size, Color color, Vector position, Vector movement, Displayer displayer) {
+        super(color, position, movement, displayer);
         this.size = size;
     }
 
-    public void draw(Graphics g) {
-        g.setColor(getColor());
-        g.fillRect(getPosition().getX(), getPosition().getY(), size, size);
+    public void draw() {
+        Graphics graphics = getDisplayer().getGraphics();
+        graphics.setColor(getColor());
+        graphics.fillRect(getPosition().getX(), getPosition().getY(), size, size);
     }
 
     @Override
-    public void update(int maxX, int maxY) {
-        reactOnCollision(maxX, maxY, size, size);
+    public void update() {
+        reactOnCollision(getDisplayer().getWidth(), getDisplayer().getHeight(), size, size);
     }
 }

@@ -1,13 +1,15 @@
 package game;
 
-import engine.DrawableObject;
+import graphics.Displayer;
+import graphics.DrawableObject;
 import utility.Vector;
 
 import java.awt.*;
 
 public abstract class DShape extends DrawableObject {
-    public DShape(Color color, Vector position, Vector movement) {
-        super(color, position, movement);
+
+    public DShape(Color color, Vector position, Vector movement, Displayer displayer) {
+        super(color, position, movement, displayer);
     }
 
     public void reactOnCollision(int maxX, int maxY, int offsetX, int offsetY) {
