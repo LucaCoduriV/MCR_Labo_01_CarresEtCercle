@@ -1,4 +1,9 @@
+package engine;
+
+import engine.Drawable;
+
 import java.awt.*;
+import utility.*;
 
 public abstract class DrawableObject implements Drawable {
     private final Color COLOR;
@@ -23,7 +28,13 @@ public abstract class DrawableObject implements Drawable {
         return movement;
     }
 
-    public void update() {
-        position = position.add(movement);
+    public void setPosition(Vector position) {
+        this.position = position;
     }
+
+    public void setMovement(Vector movement) {
+        this.movement = movement;
+    }
+
+    public abstract void update(int maxX, int maxY);
 }

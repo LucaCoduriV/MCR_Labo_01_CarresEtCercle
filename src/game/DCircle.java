@@ -1,6 +1,10 @@
+package game;
+
+import utility.Vector;
+
 import java.awt.*;
 
-public class DCircle extends DrawableObject {
+public class DCircle extends DShape {
     private int radius;
 
     public DCircle(int radius, Color color, Vector position, Vector movement) {

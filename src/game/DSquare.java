@@ -1,3 +1,8 @@
+package game;
+
+import game.DRectangle;
+import utility.Vector;
+
 import java.awt.*;
 
 public class DSquare extends DRectangle {

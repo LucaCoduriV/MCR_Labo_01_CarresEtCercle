@@ -1,3 +1,5 @@
+package utility;
+
 public class Vector {
     private int x;
     private int y;

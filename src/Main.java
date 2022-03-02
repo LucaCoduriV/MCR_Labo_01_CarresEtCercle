@@ -1,5 +1,4 @@
-import javax.swing.*;
-import java.awt.*;
+import engine.MainWindow;
 
 public class Main {
 

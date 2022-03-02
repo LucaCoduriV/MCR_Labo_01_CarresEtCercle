@@ -1,6 +1,9 @@
-import java.awt.*;
+package game;
 
-public class DRectangle extends DrawableObject {
+import java.awt.*;
+import utility.*;
+
+public class DRectangle extends DShape {
     private int width;
     private int height;
 
