@@ -20,16 +20,6 @@ public class DCircle extends DShape {
 
     @Override
     public void update(int maxX, int maxY) {
-        Vector newPosition = getPosition().add(getMovement());
-
-        if ((newPosition.getX() + 2 * radius) > maxX || (newPosition.getX()) < 0) {
-            setMovement(new Vector(-getMovement().getX(), getMovement().getY()));
-        }
-
-        if ((newPosition.getY() + 2 * radius) > maxY || (newPosition.getY()) < 0) {
-            setMovement(new Vector(getMovement().getX(), -getMovement().getY()));
-        }
-
-        setPosition(getPosition().add(getMovement()));
+        reactOnCollision(maxX, maxY, radius * 2, radius * 2);
     }
 }
