@@ -4,9 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class MainWindow extends JFrame {
+    private static MainWindow instance;
     private Canvas canvas;
 
-    public MainWindow() {
+    private MainWindow() {
         canvas = new Canvas();
 
         getContentPane().setBackground(Color.WHITE);
@@ -16,5 +17,13 @@ public class MainWindow extends JFrame {
 
         canvas.startUpdate();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
+    public static MainWindow getInstance() {
+        if (instance == null) {
+            instance = new MainWindow();
+        }
+
+        return instance;
     }
 }
