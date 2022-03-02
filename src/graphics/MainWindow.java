@@ -51,9 +51,6 @@ public class MainWindow implements Displayer {
 
     @Override
     public void repaint() {
-        //frame.repaint();
-        //canvas.repaint();
-
         canvas.getGraphics().drawImage(image, 0, 0, null);
         g.setColor(frame.getBackground());
         g.fillRect(0, 0, getWidth(), getHeight());
