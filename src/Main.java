@@ -1,3 +1,4 @@
+import graphics.Displayer;
 import graphics.Drawable;
 import graphics.DrawableObject;
 import graphics.MainWindow;
@@ -10,6 +11,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -43,25 +46,14 @@ public class Main {
         List<DShape> shapes = new ArrayList<>();
         MainWindow mainWindow = MainWindow.getInstance();
 
-        for (int i = 0; i < NB_CIRCLES; i++) {
-            Random random = new Random();
 
-            final int RADIUS = random.nextInt(MAX_SIZE / 2 - MIN_SIZE / 2) + MIN_SIZE / 2;
-            final int MOVE_X = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
-            final int MOVE_Y = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
-
-            shapes.add(new DCircle(RADIUS, CIRCLE_COLOR, new Vector(RADIUS, RADIUS), new Vector(MOVE_X, MOVE_Y),mainWindow));
+        try{
+            createShapeRandomly(DCircle.class,CIRCLE_COLOR, NB_CIRCLES, mainWindow, shapes);
+            createShapeRandomly(DSquare.class,SQUARE_COLOR, NB_SQUARES, mainWindow, shapes);
+        }catch(Exception e){
+            System.out.println(e);
         }
 
-        for (int i = 0; i < NB_SQUARES; i++) {
-            Random random = new Random();
-
-            final int SIZE = random.nextInt(MAX_SIZE - MIN_SIZE) + MIN_SIZE;
-            final int MOVE_X = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
-            final int MOVE_Y = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
-
-            shapes.add(new DSquare(SIZE, SQUARE_COLOR, new Vector(SIZE / 2, SIZE / 2), new Vector(MOVE_X, MOVE_Y), mainWindow));
-        }
 
 
 
@@ -83,5 +75,26 @@ public class Main {
 
         timer.start();
 
+    }
+
+    static void createShapeRandomly(Class shape,Color color, int quantity, Displayer window, List<DShape> shapes) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+
+        Random random = new Random();
+
+        for (int i = 0; i < quantity; i++) {
+
+            final int SIZE = random.nextInt(MAX_SIZE - MIN_SIZE) + MIN_SIZE;
+            final int MOVE_X = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
+            final int MOVE_Y = random.nextInt((MAX_MOVEMENT - MIN_MOVEMENT) * 2) - MIN_MOVEMENT;
+
+            Constructor constr = shape.getDeclaredConstructor(int.class,
+                    Color.class,
+                    Vector.class,
+                    Vector.class,
+                    Displayer.class);
+
+            shapes.add((DShape) constr.newInstance(SIZE, color, new Vector(SIZE, SIZE), new Vector(MOVE_X, MOVE_Y), window));
+
+        }
     }
 }

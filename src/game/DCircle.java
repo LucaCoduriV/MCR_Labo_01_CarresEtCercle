@@ -6,22 +6,22 @@ import utility.Vector;
 import java.awt.*;
 
 public class DCircle extends DShape {
-    private int radius;
+    private int diametre;
 
-    public DCircle(int radius, Color color, Vector position, Vector movement, Displayer displayer) {
+    public DCircle(int diametre, Color color, Vector position, Vector movement, Displayer displayer) {
         super(color, position, movement, displayer);
-        this.radius = radius;
+        this.diametre = diametre;
     }
 
     @Override
     public void draw() {
         Graphics graphics = getDisplayer().getGraphics();
         graphics.setColor(getColor());
-        graphics.fillOval(getPosition().getX(), getPosition().getY(), 2 * radius, 2 * radius);
+        graphics.fillOval(getPosition().getX(), getPosition().getY(), diametre, diametre);
     }
 
     @Override
     public void update() {
-        reactOnCollision(getDisplayer().getWidth(), getDisplayer().getHeight(), radius * 2, radius * 2);
+        reactOnCollision(getDisplayer().getWidth(), getDisplayer().getHeight(), diametre, diametre);
     }
 }
