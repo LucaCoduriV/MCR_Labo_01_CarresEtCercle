@@ -2,9 +2,10 @@ package graphics;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.ImageObserver;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
-public class MainWindow implements Displayer {
+public class MainWindow implements Displayer, ComponentListener {
     private static MainWindow instance;
     private Canvas canvas;
     private JFrame frame;
@@ -24,6 +25,8 @@ public class MainWindow implements Displayer {
 
         image = canvas.createImage(getWidth(), getHeight());
         g = (Graphics2D) image.getGraphics();
+
+        frame.addComponentListener(this);
     }
 
     public static MainWindow getInstance() {
@@ -59,5 +62,26 @@ public class MainWindow implements Displayer {
     @Override
     public void setTitle(String title) {
         frame.setTitle(title);
+    }
+
+    @Override
+    public void componentResized(ComponentEvent e) {
+        image = canvas.createImage(getWidth(), getHeight());
+        g = (Graphics2D) image.getGraphics();
+    }
+
+    @Override
+    public void componentMoved(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void componentShown(ComponentEvent e) {
+
+    }
+
+    @Override
+    public void componentHidden(ComponentEvent e) {
+
     }
 }
