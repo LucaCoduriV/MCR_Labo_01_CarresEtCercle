@@ -7,13 +7,13 @@ import java.awt.event.ComponentListener;
 
 public class MainWindow implements Displayer, ComponentListener {
     private static MainWindow instance;
-    private Canvas canvas;
-    private JFrame frame;
+    private final JPanel canvas;
+    private final JFrame frame;
     private Image image;
     private Graphics2D g;
 
     private MainWindow() {
-        canvas = new Canvas();
+        canvas = new JPanel();
         frame = new JFrame();
 
         frame.getContentPane().setBackground(Color.WHITE);
