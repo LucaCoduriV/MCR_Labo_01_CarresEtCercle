@@ -1,6 +1,8 @@
 package game;
 
 public class FilledShapeFactory extends BouncableFactory{
+    private FilledShapeFactory(){}
+
     @Override
     Bouncable createCircle() {
         return null;
