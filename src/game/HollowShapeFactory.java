@@ -6,6 +6,14 @@ import UI.Renderer;
 import java.awt.*;
 
 public class HollowShapeFactory extends BouncableFactory{
+    private static HollowShapeFactory instance;
+
+    public static HollowShapeFactory getInstance() {
+        if(instance == null){
+            instance = new HollowShapeFactory();
+        }
+        return instance;
+    }
 
     private HollowShapeFactory(){
         renderer = new HollowRender();

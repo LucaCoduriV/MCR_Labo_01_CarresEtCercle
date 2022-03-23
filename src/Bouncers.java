@@ -2,7 +2,6 @@ import UI.MainWindow;
 import game.Bouncable;
 import game.FilledShapeFactory;
 import game.HollowShapeFactory;
-import utility.Singleton;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,12 +18,12 @@ public class Bouncers {
 
 
         bouncebales = new ArrayList<Bouncable>();
-        hollowFactory = (HollowShapeFactory) HollowShapeFactory.getInstance();
-        filledFactory = (FilledShapeFactory) FilledShapeFactory.getInstance();
+        hollowFactory = HollowShapeFactory.getInstance();
+        filledFactory = FilledShapeFactory.getInstance();
 
         bouncebales.add(hollowFactory.createCircle());
 
-        MainWindow mainwindow = (MainWindow) MainWindow.getInstance();
+        MainWindow mainwindow = MainWindow.getInstance();
 
         Timer t = new Timer(66, new ActionListener(){
 
@@ -41,9 +40,6 @@ public class Bouncers {
     }
 
     public static void main(String[] args) throws Exception {
-        //MainWindow.register(MainWindow.class);
-        //HollowShapeFactory.register(HollowShapeFactory.class);
-        //FilledShapeFactory.register(FilledShapeFactory.class);
         new Bouncers().run();
     }
 }

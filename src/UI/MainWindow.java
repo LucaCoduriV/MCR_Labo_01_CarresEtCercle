@@ -1,13 +1,21 @@
 package UI;
 
 import com.sun.tools.javac.Main;
-import utility.Singleton;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MainWindow extends Singleton implements Displayer, ComponentListener {
+public class MainWindow implements Displayer, ComponentListener {
+
+    private static MainWindow instance;
+
+    public static MainWindow getInstance() {
+        if(instance == null){
+            instance = new MainWindow();
+        }
+        return instance;
+    }
 
     /**
      * Image on which the content is drawn

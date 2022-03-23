@@ -6,6 +6,15 @@ import UI.Renderer;
 import java.awt.*;
 
 public class FilledShapeFactory extends BouncableFactory{
+    private static FilledShapeFactory instance;
+
+    public static FilledShapeFactory getInstance(){
+        if(instance == null){
+            instance = new FilledShapeFactory();
+        }
+        return instance;
+    }
+
     private FilledShapeFactory(){
         renderer = new FilledRenderer();
     }
