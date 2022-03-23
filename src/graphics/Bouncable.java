@@ -1,4 +1,6 @@
-package game;
+package graphics;
+
+import UI.Renderer;
 
 import java.awt.*;
 
