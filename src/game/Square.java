@@ -2,29 +2,27 @@ package game;
 
 import UI.MainWindow;
 import UI.Renderer;
-import utility.Singleton;
 import utility.Vector;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
 public class Square extends BShape {
-    private int radius;
+    private int size;
 
-    public Square(Renderer renderer, Color color, Vector position, Vector movement, int radius) {
+    public Square(Renderer renderer, Color color, Vector position, Vector movement, int size) {
         super(renderer, color, position, movement);
-        this.radius = radius;
+        this.size = size;
     }
 
     @Override
     public void move() {
-        //TODO décommenter
-        MainWindow mainWindow = (MainWindow) Singleton.getInstance();
-        reactOnCollision(mainWindow.getWidth(), mainWindow.getHeight(), radius, radius);
+        MainWindow mainWindow = MainWindow.getInstance();
+        reactOnCollision(mainWindow.getWidth(), mainWindow.getHeight(), size, size);
     }
 
     @Override
     public Shape getShape() {
-        return new Ellipse2D.Double(radius, radius, radius, radius);
+        return new Rectangle(size, size);
     }
 }

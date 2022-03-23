@@ -21,7 +21,7 @@ public class Bouncers {
         hollowFactory = HollowShapeFactory.getInstance();
         filledFactory = FilledShapeFactory.getInstance();
 
-        bouncebales.add(hollowFactory.createCircle());
+        bouncebales.add(filledFactory.createCircle());
 
         MainWindow mainwindow = MainWindow.getInstance();
 
@@ -29,10 +29,12 @@ public class Bouncers {
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                mainwindow.repaint();
                 for (Bouncable bounce: bouncebales) {
                     bounce.draw();
+                    bounce.move();
                 }
-                mainwindow.repaint();
+
             }
         });
         t.setRepeats(true);
