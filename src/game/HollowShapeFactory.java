@@ -1,15 +1,23 @@
 package game;
 
-public class HollowShapeFactory extends BouncableFactory{
-    private HollowShapeFactory(){}
+import UI.HollowRender;
+import UI.Renderer;
 
-    @Override
-    Bouncable createCircle() {
-        return new Circle();
+import java.awt.*;
+
+public class HollowShapeFactory extends BouncableFactory{
+
+    private HollowShapeFactory(){
+        renderer = new HollowRender();
     }
 
     @Override
-    Bouncable createSquare() {
-        return new Square();
+    public Bouncable createCircle() {
+        return new Circle(renderer, Color.green, 5);
+    }
+
+    @Override
+    public Bouncable createSquare() {
+        return new Square(renderer, Color.red, 10);
     }
 }

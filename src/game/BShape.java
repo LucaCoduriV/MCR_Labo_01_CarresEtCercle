@@ -1,5 +1,6 @@
 package game;
 
+import UI.MainWindow;
 import UI.Renderer;
 
 import java.awt.*;
@@ -15,8 +16,8 @@ public abstract class BShape implements Bouncable{
 
     @Override
     public void draw() {
-        // TODO décommenter
-        //renderer.display(MainWindow.getInstance().getGraphics(), this);
+        MainWindow main = (MainWindow) MainWindow.getInstance();
+        renderer.display(main.getGraphics(), this);
     }
 
     @Override
