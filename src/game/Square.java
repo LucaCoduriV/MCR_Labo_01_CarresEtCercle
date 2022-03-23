@@ -1,6 +1,8 @@
 package game;
 
+import UI.MainWindow;
 import UI.Renderer;
+import utility.Singleton;
 import utility.Vector;
 
 import java.awt.*;
@@ -17,7 +19,8 @@ public class Square extends BShape {
     @Override
     public void move() {
         //TODO décommenter
-        //reactOnCollision(MainWindow.getInstance().getWidth(), MainWindow.getInstance().getHeight(), size, size);
+        MainWindow mainWindow = (MainWindow) Singleton.getInstance();
+        reactOnCollision(mainWindow.getWidth(), mainWindow.getHeight(), radius, radius);
     }
 
     @Override

@@ -2,6 +2,7 @@ package game;
 
 import UI.FilledRenderer;
 import UI.Renderer;
+import utility.Vector;
 
 import java.awt.*;
 
@@ -12,11 +13,11 @@ public class FilledShapeFactory extends BouncableFactory{
 
     @Override
     public Bouncable createCircle() {
-        return new Circle(renderer, Color.BLUE, 5);
+        return new Circle(renderer, Color.BLUE, new Vector(0, 0), new Vector(1, 2), 5);
     }
 
     @Override
     public Bouncable createSquare() {
-        return new Square(renderer, Color.YELLOW, 10);
+        return new Square(renderer, Color.YELLOW, new Vector(0, 0), new Vector(1, 2), 10);
     }
 }
