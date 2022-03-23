@@ -13,7 +13,7 @@ public class Singleton {
             throws Exception
     {
         if (Singleton.instance != null)
-            throw new RuntimeException("Singleton already registered");
-        Singleton.instance = c.newInstance();
+            throw new RuntimeException("Singleton alredy registered");
+        Singleton.instance = c.getConstructor().newInstance();
     }
 }

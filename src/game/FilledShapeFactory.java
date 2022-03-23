@@ -1,18 +1,22 @@
 package game;
 
+import UI.FilledRenderer;
 import UI.Renderer;
 
+import java.awt.*;
+
 public class FilledShapeFactory extends BouncableFactory{
-
-    private FilledShapeFactory(){}
-
-    @Override
-    Bouncable createCircle() {
-        return new Circle();
+    private FilledShapeFactory(){
+        renderer = new FilledRenderer();
     }
 
     @Override
-    Bouncable createSquare() {
-        return new Square();
+    public Bouncable createCircle() {
+        return new Circle(renderer, Color.BLUE, 5);
+    }
+
+    @Override
+    public Bouncable createSquare() {
+        return new Square(renderer, Color.YELLOW, 10);
     }
 }
