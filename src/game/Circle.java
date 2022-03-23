@@ -1,11 +1,15 @@
 package game;
 
+import UI.Renderer;
+
 import java.awt.*;
 
 public class Circle extends BShape {
-    @Override
-    public void draw() {
+    private int size;
 
+    public Circle(Renderer renderer, Color color, int size) {
+        super(renderer, color);
+        this.size = size;
     }
 
     @Override
@@ -14,12 +18,7 @@ public class Circle extends BShape {
     }
 
     @Override
-    public Color getColor() {
-        return null;
-    }
-
-    @Override
-    public BShape getShape() {
-        return null;
+    public Shape getShape() {
+        return new Rectangle(size, size);
     }
 }
