@@ -1,5 +1,6 @@
 import UI.MainWindow;
 import game.Bouncable;
+import game.BouncableFactory;
 import game.FilledShapeFactory;
 import game.HollowShapeFactory;
 
@@ -21,7 +22,8 @@ public class Bouncers {
         hollowFactory = HollowShapeFactory.getInstance();
         filledFactory = FilledShapeFactory.getInstance();
 
-        bouncebales.add(filledFactory.createCircle());
+        generateShape(10, 10, filledFactory);
+        //bouncebales.add(filledFactory.createCircle());
 
         MainWindow mainwindow = MainWindow.getInstance();
 
@@ -41,6 +43,14 @@ public class Bouncers {
         t.start();
     }
 
+    private void generateShape(int nbCircles, int nbSquares, BouncableFactory factory){
+        for (int i = 0; i < nbCircles; i++) {
+            bouncebales.add(factory.createCircle());
+        }
+        for (int i = 0; i < nbSquares; i++) {
+            bouncebales.add(factory.createSquare());
+        }
+    }
     public static void main(String[] args) throws Exception {
         new Bouncers().run();
     }

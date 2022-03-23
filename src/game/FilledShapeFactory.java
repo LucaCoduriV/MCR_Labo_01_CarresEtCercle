@@ -22,11 +22,11 @@ public class FilledShapeFactory extends BouncableFactory{
 
     @Override
     public Bouncable createCircle() {
-        return new Circle(renderer, Color.BLUE, new Vector(0, 0), new Vector(10, 20), 50);
+        return new Circle(renderer, Color.BLUE, new Vector(0, 0), getShapesVelocity(), getShapeSize());
     }
 
     @Override
     public Bouncable createSquare() {
-        return new Square(renderer, Color.YELLOW, new Vector(0, 0), new Vector(10, 20), 100);
+        return new Square(renderer, Color.YELLOW, new Vector(0, 0), getShapesVelocity(), getShapeSize());
     }
 }
