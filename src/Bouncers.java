@@ -25,15 +25,15 @@ public class Bouncers {
 
         MainWindow mainwindow = MainWindow.getInstance();
 
-        Timer t = new Timer(66, new ActionListener(){
+        Timer t = new Timer(10, new ActionListener(){
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                mainwindow.repaint();
                 for (Bouncable bounce: bouncebales) {
-                    bounce.draw();
                     bounce.move();
+                    bounce.draw();
                 }
+                mainwindow.repaint();
 
             }
         });

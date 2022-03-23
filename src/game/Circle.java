@@ -23,8 +23,9 @@ public class Circle extends BShape {
         reactOnCollision(mainWindow.getWidth(), mainWindow.getHeight(), radius, radius);
     }
 
+    // TODO appliquer l'offset au dessin et pas au reactOnCollision ?
     @Override
     public Shape getShape() {
-        return new Ellipse2D.Double(radius, radius, radius, radius);
+        return new Ellipse2D.Double(getPosition().getX(), getPosition().getY(), radius, radius);
     }
 }

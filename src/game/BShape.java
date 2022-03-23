@@ -21,7 +21,7 @@ public abstract class BShape implements Bouncable {
 
     @Override
     public void draw() {
-        MainWindow main = (MainWindow) MainWindow.getInstance();
+        MainWindow main = MainWindow.getInstance();
         renderer.display(main.getGraphics(), this);
     }
 
@@ -30,6 +30,7 @@ public abstract class BShape implements Bouncable {
         return COLOR;
     }
 
+    // TODO rename + est-ce que c'est pas mieux de pas avoir les bounds en paramètre ?
     public void reactOnCollision(int maxX, int maxY, int offsetX, int offsetY) {
         Vector newPosition = position.add(movement);
 

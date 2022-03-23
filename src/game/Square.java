@@ -23,6 +23,6 @@ public class Square extends BShape {
 
     @Override
     public Shape getShape() {
-        return new Rectangle(size, size);
+        return new Rectangle(getPosition().getX(), getPosition().getY(), size, size);
     }
 }
