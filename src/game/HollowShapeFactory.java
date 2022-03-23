@@ -22,11 +22,11 @@ public class HollowShapeFactory extends BouncableFactory{
 
     @Override
     public Bouncable createCircle() {
-        return new Circle(renderer, Color.green, new Vector(0, 0), getShapesVelocity(), getShapeSize());
+        return new Circle(renderer, Color.green, getShapePosition(), getShapesVelocity(), getShapeSize());
     }
 
     @Override
     public Bouncable createSquare() {
-        return new Square(renderer, Color.red, new Vector(0, 0), getShapesVelocity(), getShapeSize());
+        return new Square(renderer, Color.red, getShapePosition(), getShapesVelocity(), getShapeSize());
     }
 }

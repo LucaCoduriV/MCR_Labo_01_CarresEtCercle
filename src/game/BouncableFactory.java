@@ -1,5 +1,6 @@
 package game;
 
+import UI.MainWindow;
 import UI.Renderer;
 import utility.Vector;
 
@@ -16,6 +17,10 @@ public abstract class BouncableFactory {
     protected Vector getShapesVelocity(){
         return new Vector(-SHAPES_VELOCITY_RANGE + rnd.nextInt(2 * SHAPES_VELOCITY_RANGE),
                 -SHAPES_VELOCITY_RANGE + rnd.nextInt(2 * SHAPES_VELOCITY_RANGE));
+    }
+    protected Vector getShapePosition(){
+        MainWindow window = MainWindow.getInstance();
+        return new Vector(rnd.nextInt(window.getWidth()), rnd.nextInt(window.getHeight()));
     }
 
     Renderer renderer;

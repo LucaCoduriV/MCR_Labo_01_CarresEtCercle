@@ -17,7 +17,7 @@ public class Square extends BShape {
 
     @Override
     public void move() {
-        MainWindow mainWindow = MainWindow.getInstance();
+        MainWindow mainWindow = MainWindow.getInstance(); // TODO mainWindow dans le shape c'est sus non ?
         reactOnCollision(mainWindow.getWidth(), mainWindow.getHeight(), size, size);
     }
 

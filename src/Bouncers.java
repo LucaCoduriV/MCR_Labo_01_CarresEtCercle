@@ -23,7 +23,6 @@ public class Bouncers {
         filledFactory = FilledShapeFactory.getInstance();
 
         generateShape(10, 10, filledFactory);
-        //bouncebales.add(filledFactory.createCircle());
 
         MainWindow mainwindow = MainWindow.getInstance();
 
@@ -43,6 +42,13 @@ public class Bouncers {
         t.start();
     }
 
+    /**
+     * Generate a set number of circles and squares using a particular factory
+     *
+     * @param nbCircles the number of circles to generate
+     * @param nbSquares the number of squares to generate
+     * @param factory factory used to generate the shapes
+     */
     private void generateShape(int nbCircles, int nbSquares, BouncableFactory factory){
         for (int i = 0; i < nbCircles; i++) {
             bouncebales.add(factory.createCircle());
