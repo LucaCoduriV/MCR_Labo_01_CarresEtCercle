@@ -1,15 +1,18 @@
 package game;
 
+import UI.Renderer;
+
 public class FilledShapeFactory extends BouncableFactory{
+
     private FilledShapeFactory(){}
 
     @Override
     Bouncable createCircle() {
-        return null;
+        return new Circle();
     }
 
     @Override
     Bouncable createSquare() {
-        return null;
+        return new Square();
     }
 }

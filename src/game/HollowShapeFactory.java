@@ -5,11 +5,11 @@ public class HollowShapeFactory extends BouncableFactory{
 
     @Override
     Bouncable createCircle() {
-        return null;
+        return new Circle();
     }
 
     @Override
     Bouncable createSquare() {
-        return null;
+        return new Square();
     }
 }
