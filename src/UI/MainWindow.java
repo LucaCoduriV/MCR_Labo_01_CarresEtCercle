@@ -21,10 +21,7 @@ public class MainWindow implements Displayer, ComponentListener {
      * Image on which the content is drawn
      */
     private Image image;
-    /**
-     * Dimension of the drawable area
-     */
-    private Dimension imageDimensions;
+
     /**
      * Graphics used to draw
      */
@@ -33,17 +30,17 @@ public class MainWindow implements Displayer, ComponentListener {
     private JFrame frame;
     private JPanel panel;
 
-    public MainWindow() { // TODO faut mettre en package ou jsp mais la visitibilité est a chier
+    private MainWindow() {
         frame = new JFrame();
         frame.setSize(1000, 1000);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setBackground(Color.WHITE);
 
         panel = new JPanel(); // TODO recheck double buff
         frame.add(panel);
         frame.setVisible(true);
 
         image = panel.createImage(getWidth(), getHeight());
-        imageDimensions = new Dimension(getWidth(), getHeight());
 
         graphics2D = (Graphics2D) image.getGraphics();
 
@@ -79,10 +76,9 @@ public class MainWindow implements Displayer, ComponentListener {
      */
     @Override
     public void repaint() {
-        panel.getGraphics().drawImage(image, 0, 0, imageDimensions.width, // TODO je crois que je suis un animal
-                imageDimensions.height, null);
-        graphics2D.setColor(Color.cyan);
-        graphics2D.fillRect(0, 0, imageDimensions.width, imageDimensions.height);
+        panel.getGraphics().drawImage(image, 0, 0, null);
+        graphics2D.setColor(frame.getBackground());
+        graphics2D.fillRect(0, 0, getWidth(), getHeight());
     }
 
     /**
