@@ -16,8 +16,6 @@ public class Bouncers {
     FilledShapeFactory filledFactory;
 
     void run(){
-
-
         bouncebales = new ArrayList<Bouncable>();
         hollowFactory = HollowShapeFactory.getInstance();
         filledFactory = FilledShapeFactory.getInstance();

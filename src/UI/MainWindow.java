@@ -6,6 +6,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+/**
+ * The MainWindow class is a singleton class that is used to display the content of the application.
+ * 
+ * @author Nelson Jenrenaud
+ * @author Luca Coduri
+ * @version 1.0
+ */
 public class MainWindow implements Displayer, ComponentListener {
 
     private static MainWindow instance;
@@ -92,7 +99,6 @@ public class MainWindow implements Displayer, ComponentListener {
 
     @Override
     public void keyListener(KeyAdapter ka) {
-
     }
     public void componentResized(ComponentEvent e) {
         image = panel.createImage(getWidth(), getHeight());
