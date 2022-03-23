@@ -14,6 +14,6 @@ public class Singleton {
     {
         if (Singleton.instance != null)
             throw new RuntimeException("Singleton alredy registered");
-        Singleton.instance = c.newInstance();
+        Singleton.instance = c.getConstructor().newInstance();
     }
 }
