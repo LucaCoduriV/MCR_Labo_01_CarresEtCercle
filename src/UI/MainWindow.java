@@ -34,7 +34,13 @@ public class MainWindow implements Displayer, ComponentListener {
      */
     private Graphics2D graphics2D;
 
+    /**
+     * Window frame
+     */
     private JFrame frame;
+    /**
+     * Panel containing the canvas image
+     */
     private JPanel panel;
 
     private MainWindow() {
@@ -97,10 +103,20 @@ public class MainWindow implements Displayer, ComponentListener {
         frame.setTitle(title);
     }
 
+    /**
+     * Add a key listener to the frame
+     * 
+     * @param ka The KeyAdapter object that will be added to the frame.
+     */
     @Override
     public void addKeyListener(KeyAdapter ka) {
         frame.addKeyListener(ka);
     }
+    /**
+     * The image is recreated whenever the panel is resized
+     * 
+     * @param e The event object that contains information about the resize event.
+     */
     public void componentResized(ComponentEvent e) {
         image = panel.createImage(getWidth(), getHeight());
         graphics2D = (Graphics2D) image.getGraphics();

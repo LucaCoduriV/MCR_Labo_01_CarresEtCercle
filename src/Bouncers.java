@@ -10,29 +10,56 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.Timer;
+import javax.swing.*;
 
-public class Bouncers {
-    List<Bouncable> bouncebales;
-    HollowShapeFactory hollowFactory;
-    FilledShapeFactory filledFactory;
+/**
+ * Swing Application that draws hollow and filled shapes onto a window.
+ * @author Nelson Jeanrenaud
+ * @author Luca Coduri
+ * @author Chloé Fontaine
+ *
+ * @version 1.0
+ * Keyboard bindings :
+ *      e -> clear the screen
+ *      b -> generate hollow shapes
+ *      f -> generate filled shapes
+ *      q -> quit the application
+ */
+public class Bouncers implements Runnable{
+    /**
+     * time between updates of the shape positions (ms)
+     */
+    private final int UPDATE_RATE = 1000 / 60; // 60 Updates per seconds
 
-    void run(){
-        bouncebales = new ArrayList<Bouncable>();
+    private final int NB_SQUARES_GENERATION = 10;
+    private final int NB_CIRCLES_GENERATION = 10;
+
+    /**
+     * List of all the bouncable objects that are drawn onto the canvas
+     */
+    private List<Bouncable> bouncablesToDisplay;
+    /**
+     * Factory to create the hollow bouncable objects
+     */
+    private HollowShapeFactory hollowFactory;
+    /**
+     * Factory to create the fille dbouncable objects
+     */
+    private FilledShapeFactory filledFactory;
+
+    public void run(){
+        bouncablesToDisplay = new ArrayList<Bouncable>();
         hollowFactory = HollowShapeFactory.getInstance();
         filledFactory = FilledShapeFactory.getInstance();
-
-        generateShape(10, 10, filledFactory);
-
         MainWindow mainwindow = MainWindow.getInstance();
 
         mainwindow.addKeyListener(new KeyAdapter() {
                 @Override
                 public void keyPressed(KeyEvent e) {
                     switch (e.getKeyChar()) {
-                        case 'e' -> bouncebales.clear();
-                        case 'b' -> generateShape(10, 10, hollowFactory);
-                        case 'f' -> generateShape(10, 10, filledFactory);
+                        case 'e' -> bouncablesToDisplay.clear();
+                        case 'b' -> generateShape(NB_CIRCLES_GENERATION, NB_SQUARES_GENERATION, hollowFactory);
+                        case 'f' -> generateShape(NB_CIRCLES_GENERATION, NB_SQUARES_GENERATION, filledFactory);
                         case 'q' -> System.exit(0);
                         default -> {
                         }
@@ -40,11 +67,11 @@ public class Bouncers {
                 }
         });
 
-        Timer t = new Timer(10, new ActionListener(){
+        Timer t = new Timer(UPDATE_RATE, new ActionListener(){
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (Bouncable bounce: bouncebales) {
+                for (Bouncable bounce: bouncablesToDisplay) {
                     bounce.move();
                     bounce.draw();
                 }
@@ -65,14 +92,14 @@ public class Bouncers {
      */
     private void generateShape(int nbCircles, int nbSquares, BouncableFactory factory){
         for (int i = 0; i < nbCircles; i++) {
-            bouncebales.add(factory.createCircle());
+            bouncablesToDisplay.add(factory.createCircle());
         }
         for (int i = 0; i < nbSquares; i++) {
-            bouncebales.add(factory.createSquare());
+            bouncablesToDisplay.add(factory.createSquare());
         }
     }
 
     public static void main(String[] args) throws Exception {
-        new Bouncers().run();
+        SwingUtilities.invokeLater(new Bouncers());
     }
 }
