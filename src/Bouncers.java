@@ -6,6 +6,8 @@ import game.HollowShapeFactory;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.Timer;
@@ -23,6 +25,20 @@ public class Bouncers {
         generateShape(10, 10, filledFactory);
 
         MainWindow mainwindow = MainWindow.getInstance();
+
+        mainwindow.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    switch (e.getKeyChar()) {
+                        case 'e' -> bouncebales.clear();
+                        case 'b' -> generateShape(10, 10, hollowFactory);
+                        case 'f' -> generateShape(10, 10, filledFactory);
+                        case 'q' -> System.exit(0);
+                        default -> {
+                        }
+                    }
+                }
+        });
 
         Timer t = new Timer(10, new ActionListener(){
 
@@ -55,6 +71,7 @@ public class Bouncers {
             bouncebales.add(factory.createSquare());
         }
     }
+
     public static void main(String[] args) throws Exception {
         new Bouncers().run();
     }

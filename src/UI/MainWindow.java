@@ -98,7 +98,8 @@ public class MainWindow implements Displayer, ComponentListener {
     }
 
     @Override
-    public void keyListener(KeyAdapter ka) {
+    public void addKeyListener(KeyAdapter ka) {
+        frame.addKeyListener(ka);
     }
     public void componentResized(ComponentEvent e) {
         image = panel.createImage(getWidth(), getHeight());

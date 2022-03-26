@@ -9,5 +9,5 @@ public interface Displayer {
     Graphics2D getGraphics();
     void repaint();
     void setTitle(String s);
-    void keyListener(KeyAdapter ka);
+    void addKeyListener(KeyAdapter ka);
 }
