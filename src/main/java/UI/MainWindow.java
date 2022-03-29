@@ -41,6 +41,9 @@ public class MainWindow implements Displayer, ComponentListener {
      */
     private JPanel panel;
 
+    /**
+     * Create a new MainWindow
+     */
     private MainWindow() {
         frame = new JFrame();
         frame.setSize(1000, 1000);

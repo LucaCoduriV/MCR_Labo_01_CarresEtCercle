@@ -47,6 +47,9 @@ public class Bouncers implements Runnable{
      */
     private FilledShapeFactory filledFactory;
 
+    /**
+     * Run the main application
+     */
     public void run(){
         bouncablesToDisplay = new ArrayList<Bouncable>();
         hollowFactory = HollowShapeFactory.getInstance();

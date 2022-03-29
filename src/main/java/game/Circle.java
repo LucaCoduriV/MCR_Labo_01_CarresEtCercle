@@ -10,8 +10,18 @@ import java.awt.geom.Ellipse2D;
 
 class Circle extends BShape {
 
-    private int radius;
+    final private int radius;
 
+    /**
+     * Create a new circle
+     * 
+     * @param renderer  The renderer to draw the shape
+     * @param displayer The displayer to draw the shape
+     * @param color     The color of the shape
+     * @param position  The position of the shape
+     * @param movement  The movement of the shape
+     * @param radius    The radius of the circle
+     */
     public Circle(Renderer renderer, Displayer displayer, Color color, Vector position, Vector movement, int radius) {
         super(renderer, displayer, color, position, movement);
         this.radius = radius;
@@ -19,7 +29,6 @@ class Circle extends BShape {
 
     @Override
     public void move() {
-        MainWindow mainWindow = MainWindow.getInstance();
         reactOnCollision(radius, radius);
     }
 

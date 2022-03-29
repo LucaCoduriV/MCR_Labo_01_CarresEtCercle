@@ -8,6 +8,10 @@ import java.awt.*;
 public class FilledShapeFactory extends BouncableFactory{
     private static FilledShapeFactory instance;
 
+    /**
+     * Create a new FilledShapeFactory if it doesn't exist
+     * @return the FilledShapeFactory
+     */
     public static FilledShapeFactory getInstance(){
         if(instance == null){
             instance = new FilledShapeFactory();
@@ -15,6 +19,9 @@ public class FilledShapeFactory extends BouncableFactory{
         return instance;
     }
 
+    /**
+     * Create a new factory with a filled renderer
+     */
     private FilledShapeFactory(){
         renderer = new FilledRenderer();
     }
