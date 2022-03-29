@@ -10,7 +10,7 @@ public abstract class BouncableFactory {
     private static Random rnd = new Random();
     private static final int SHAPES_SIZE_RANGE = 60;
     private static final int SHAPES_VELOCITY_RANGE = 30;
-
+    protected Renderer renderer;
     /**
      * Generate a random shape size
      * 
@@ -38,7 +38,6 @@ public abstract class BouncableFactory {
         return new Vector(rnd.nextInt(window.getWidth()), rnd.nextInt(window.getHeight()));
     }
 
-    Renderer renderer;
     public abstract Bouncable createCircle();
     public abstract Bouncable createSquare();
 }

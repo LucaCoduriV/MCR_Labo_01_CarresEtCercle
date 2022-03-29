@@ -5,9 +5,9 @@ import UI.Renderer;
 import utility.Vector;
 
 import java.awt.*;
-
+// TODO public ?
 public abstract class BShape implements Bouncable {
-    private Renderer renderer = null;
+    private Renderer renderer;
     private final Color COLOR;
     private Vector position;
     private Vector movement;
@@ -31,6 +31,7 @@ public abstract class BShape implements Bouncable {
     }
 
     // TODO rename + est-ce que c'est pas mieux de pas avoir les bounds en paramètre ?
+    // TODO public ?
     public void reactOnCollision(int maxX, int maxY, int offsetX, int offsetY) {
         Vector newPosition = position.add(movement);
 
