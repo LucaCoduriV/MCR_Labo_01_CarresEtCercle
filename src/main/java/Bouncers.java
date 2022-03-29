@@ -92,10 +92,10 @@ public class Bouncers implements Runnable{
      */
     private void generateShape(int nbCircles, int nbSquares, BouncableFactory factory){
         for (int i = 0; i < nbCircles; i++) {
-            bouncablesToDisplay.add(factory.createCircle());
+            bouncablesToDisplay.add(factory.createCircle(MainWindow.getInstance()));
         }
         for (int i = 0; i < nbSquares; i++) {
-            bouncablesToDisplay.add(factory.createSquare());
+            bouncablesToDisplay.add(factory.createSquare(MainWindow.getInstance()));
         }
     }
 

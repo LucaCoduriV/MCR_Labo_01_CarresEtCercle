@@ -1,8 +1,7 @@
 package game;
 
-import UI.HollowRender;
-import UI.Renderer;
-import utility.Vector;
+import UI.Displayer;
+import UI.HollowRenderer;
 
 import java.awt.*;
 
@@ -17,16 +16,16 @@ public class HollowShapeFactory extends BouncableFactory{
     }
 
     private HollowShapeFactory(){
-        renderer = new HollowRender();
+        renderer = new HollowRenderer();
     }
 
     @Override
-    public Bouncable createCircle() {
-        return new Circle(renderer, Color.green, getShapePosition(), getShapesVelocity(), getShapeSize());
+    public Bouncable createCircle(Displayer displayer) {
+        return new Circle(renderer, displayer, Color.green, getShapePosition(), getShapesVelocity(), getShapeSize());
     }
 
     @Override
-    public Bouncable createSquare() {
-        return new Square(renderer, Color.red, getShapePosition(), getShapesVelocity(), getShapeSize());
+    public Bouncable createSquare(Displayer displayer) {
+        return new Square(renderer, displayer, Color.red, getShapePosition(), getShapesVelocity(), getShapeSize());
     }
 }

@@ -1,19 +1,21 @@
 package game;
 
-import UI.MainWindow;
+import UI.Displayer;
 import UI.Renderer;
 import utility.Vector;
 
 import java.awt.*;
-// TODO public ?
-public abstract class BShape implements Bouncable {
+
+abstract class BShape implements Bouncable {
     private Renderer renderer;
+    private Displayer displayer;
     private final Color COLOR;
     private Vector position;
     private Vector movement;
 
-    protected BShape(Renderer renderer, Color color, Vector position, Vector movement) {
+    protected BShape(Renderer renderer, Displayer displayer, Color color, Vector position, Vector movement) {
         this.renderer = renderer;
+        this.displayer = displayer;
         this.COLOR = color;
         this.position = position;
         this.movement = movement;
@@ -21,8 +23,7 @@ public abstract class BShape implements Bouncable {
 
     @Override
     public void draw() {
-        MainWindow main = MainWindow.getInstance();
-        renderer.display(main.getGraphics(), this);
+        renderer.display(displayer.getGraphics(), this);
     }
 
     @Override
@@ -30,16 +31,14 @@ public abstract class BShape implements Bouncable {
         return COLOR;
     }
 
-    // TODO rename + est-ce que c'est pas mieux de pas avoir les bounds en paramètre ?
-    // TODO public ?
-    public void reactOnCollision(int maxX, int maxY, int offsetX, int offsetY) {
+    protected void reactOnCollision(int offsetX, int offsetY) {
         Vector newPosition = position.add(movement);
 
-        if ((newPosition.getX() + offsetX) >= maxX || (newPosition.getX()) <= 0) {
+        if ((newPosition.getX() + offsetX) >= displayer.getWidth() || (newPosition.getX()) <= 0) {
             movement = new Vector(-movement.getX(), movement.getY());
         }
 
-        if ((newPosition.getY() + offsetY) >= maxY || (newPosition.getY()) <= 0) {
+        if ((newPosition.getY() + offsetY) >= displayer.getHeight() || (newPosition.getY()) <= 0) {
             movement = new Vector(movement.getX(), -movement.getY());
         }
 

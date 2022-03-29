@@ -1,5 +1,6 @@
 package game;
 
+import UI.Displayer;
 import UI.MainWindow;
 import UI.Renderer;
 import utility.Vector;
@@ -38,6 +39,6 @@ public abstract class BouncableFactory {
         return new Vector(rnd.nextInt(window.getWidth()), rnd.nextInt(window.getHeight()));
     }
 
-    public abstract Bouncable createCircle();
-    public abstract Bouncable createSquare();
+    public abstract Bouncable createCircle(Displayer displayer);
+    public abstract Bouncable createSquare(Displayer displayer);
 }

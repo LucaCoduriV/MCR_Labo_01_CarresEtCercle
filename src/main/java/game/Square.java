@@ -1,24 +1,23 @@
 package game;
 
-import UI.MainWindow;
+import UI.Displayer;
 import UI.Renderer;
 import utility.Vector;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 
-public class Square extends BShape {
+class Square extends BShape {
     private int size;
 
-    public Square(Renderer renderer, Color color, Vector position, Vector movement, int size) {
-        super(renderer, color, position, movement);
+    public Square(Renderer renderer, Displayer displayer, Color color, Vector position, Vector movement, int size) {
+        super(renderer, displayer, color, position, movement);
         this.size = size;
     }
 
     @Override
     public void move() {
-        MainWindow mainWindow = MainWindow.getInstance(); // TODO mainWindow dans le shape c'est sus non ?
-        reactOnCollision(mainWindow.getWidth(), mainWindow.getHeight(), size, size);
+        reactOnCollision(size, size);
     }
 
     @Override

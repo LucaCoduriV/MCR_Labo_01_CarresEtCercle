@@ -1,7 +1,5 @@
 package UI;
 
-import com.sun.tools.javac.Main;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -49,7 +47,7 @@ public class MainWindow implements Displayer, ComponentListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(Color.WHITE);
 
-        panel = new JPanel(); // TODO recheck double buff
+        panel = new JPanel();
         frame.add(panel);
         frame.setVisible(true);
 

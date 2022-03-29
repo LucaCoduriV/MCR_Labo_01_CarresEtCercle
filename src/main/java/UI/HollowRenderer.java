@@ -4,7 +4,7 @@ import game.Bouncable;
 
 import java.awt.*;
 
-public class HollowRender implements Renderer{
+public class HollowRenderer implements Renderer{
     @Override
     public void display(Graphics2D g, Bouncable b) {
         g.setColor(b.getColor());
